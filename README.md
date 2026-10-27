@@ -1,5 +1,47 @@
 
 # Predict Customer Churn
+
+> **Author & Architect:** [Robina Mirbahar](https://github.com/RobinaMirbahar) (Google Developer Expert in Cloud & AI)  
+> **Focus:** End-to-End Feature Engineering, Out-of-Fold Stacking (HistGradientBoosting, LightGBM, XGBoost, Logistic Regression) & Probability Calibration
+
+---
+
+## 🎯 Why I Built Customer Churn Prediction — Stacked Ensemble Pipeline (Engineering Purpose & Real-World Value)
+
+### 1. 📈 Beating Single-Model Baselines with Out-of-Fold Stacking
+Single gradient-boosted trees often overfit noisy customer telemetry. I engineered a multi-model stacked ensemble combining `HistGradientBoosting`, `LightGBM`, `XGBoost`, and a calibrated `LogisticRegression` meta-learner.
+
+### 2. 🛠️ Domain-Driven Behavioral Feature Engineering
+I designed interaction ratios, tenure velocity features, and service-adoption density signals that capture early churn precursors before cancellation occurs.
+
+### 3. 🎯 Leak-Free Stratified Cross-Validation
+Every transformation and out-of-fold prediction is strictly isolated inside stratified K-fold splits to guarantee production-grade generalization.
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+    subgraph Data ["1. Raw Telemetry & Feature Engineering"]
+        D_Raw["Customer Demographics, Tenure & Billing Data"]
+        D_FE["Interaction Ratios, Spend Velocity & Encoding"]
+    end
+    subgraph Base ["2. Stratified Out-of-Fold Base Learners (Level 0)"]
+        M_LGB["LightGBM Classifier"]
+        M_XGB["XGBoost Classifier"]
+        M_HGB["HistGradientBoosting Classifier"]
+    end
+    subgraph Meta ["3. Meta-Learner & Calibration (Level 1)"]
+        M_Meta["Logistic Regression Stacking Meta-Model"]
+        M_Out["Calibrated Churn Probability & Retention Priority"]
+    end
+    D_Raw --> D_FE --> M_LGB & M_XGB & M_HGB
+    M_LGB & M_XGB & M_HGB --> M_Meta --> M_Out
+```
+
+---
+
 ## Kaggle Playground Series – Season 6, Episode 3
 
 [![Kaggle Competition](https://img.shields.io/badge/Kaggle-Playground%20S6E3-20BEFF?style=flat-square&logo=kaggle)](https://www.kaggle.com/competitions/playground-series-s6e3)
@@ -137,3 +179,22 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 <div align="center">
   <img src="https://raw.githubusercontent.com/RobinaMirbahar/RobinaMirbahar/main/ProfileImages/GithubBanner.svg" alt="Robina Mirbahar Banner" width="100%" />
 </div>
+
+<!-- AUTHOR_SIGNATURE_START -->
+---
+
+## 👩‍💻 About the Author
+
+**Robina Mirbahar — Google Cloud & AI Architect**  
+*Google Developer Expert (GDE) in Cloud & AI • Published Author • Multi-Agent Systems & Serverless GPU Builder*
+
+[![GitHub](https://img.shields.io/badge/GitHub-RobinaMirbahar-181717?style=for-the-badge&logo=github)](https://github.com/RobinaMirbahar)
+[![Medium](https://img.shields.io/badge/Medium-@robinamirbahar-000000?style=for-the-badge&logo=medium)](https://medium.com/@robinamirbahar)
+[![DEV.to](https://img.shields.io/badge/DEV.to-robinamirbahar-0A0A0A?style=for-the-badge&logo=devdotto)](https://dev.to/robinamirbahar)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Robina_Mirbahar-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/robina-mirbahar)
+[![GDE Profile](https://img.shields.io/badge/Google_Developer_Expert-Profile-4285F4?style=for-the-badge&logo=google)](https://g.dev/RobinaMirbahar)
+[![YouTube](https://img.shields.io/badge/YouTube-@RobinaMirbahar-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/@RobinaMirbahar)
+[![X](https://img.shields.io/badge/X-@RobinaMirbahar-000000?style=for-the-badge&logo=x)](https://x.com/RobinaMirbahar)
+[![Amazon Author](https://img.shields.io/badge/Amazon_Book-Cloud_Computing_Voyage-FF9900?style=for-the-badge&logo=amazon)](https://www.amazon.com/dp/B0D146249R)
+
+<!-- AUTHOR_SIGNATURE_END -->
