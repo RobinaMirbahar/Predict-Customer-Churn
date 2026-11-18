@@ -2,7 +2,8 @@
 # Predict Customer Churn
 
 > **Author & Architect:** [Robina Mirbahar](https://github.com/RobinaMirbahar) ([Google Developer Expert in Cloud & AI](https://developers.google.com/profile/u/106918534005910641104?utm_campaign=deveco_gdemembers&utm_source=deveco) · Google Cloud Champion Innovator · Co-Author of [*AI Engineering*](https://www.amazon.com/dp/B0GWCZWCF4))  
-> **Focus:** End-to-End Feature Engineering, Out-of-Fold Stacking (HistGradientBoosting, LightGBM, XGBoost, Logistic Regression) & Probability Calibration
+> 📚 **Architecture Track:** End-to-End Customer Churn Probability Forecasting & Out-of-Fold Ensemble Stacking  
+> **Core Stack:** Python, Scikit-Learn (HistGradientBoosting), LightGBM, XGBoost, Logistic Regression Meta-Learner, and ROC-AUC Calibration.
 
 ---
 
