@@ -38,18 +38,6 @@ flowchart TD
     end
     D_Raw --> D_FE --> M_LGB & M_XGB & M_HGB
     M_LGB & M_XGB & M_HGB --> M_Meta --> M_Out
-    style Data fill:#fce7f3,stroke:#db2777,stroke-width:2px,color:#831843
-    style D_Raw fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    style D_FE fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
-    style Base fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#581c87
-    style Learners fill:#fce7f3,stroke:#db2777,stroke-width:2px,color:#831843
-    style M_LGB fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    style M_XGB fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
-    style M_HGB fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#581c87
-    style Meta fill:#fce7f3,stroke:#db2777,stroke-width:2px,color:#831843
-    style Calibration fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    style M_Meta fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
-    style M_Out fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#581c87
 ```
 
 ---
